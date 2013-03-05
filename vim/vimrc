@@ -1,0 +1,84 @@
+set nocompatible                " be IMproved
+
+set tabstop=4                   " a tab is four spaces
+set shiftwidth=4                " number of spaces to use for autoindenting
+set softtabstop=4
+set expandtab                   " expand tabs to spaces
+set backspace=indent,eol,start  " allow backspacking over everything in insert mode
+set autoindent                  " always set autoindent
+set copyindent                  " copy the previous indentation on autoindenting
+set shiftround                  " multiple of shiftwidth when indenting with '<' and '>'
+set showmatch                   " show matching parenthesis
+set ignorecase                  " ignore case when searching
+set smartcase                   " ignore case if search pattern is all lowercase,
+                                " case sensitive otherwise
+set smarttab                    " insert tabs on the start of a line according to
+                                " shiftwidth not tabstop
+set hlsearch                    " highlight search terms
+set incsearch                   " show search matches as you type
+set guioptions-=T               " No toolbar
+set encoding=utf-8              " UTF-8 encoded
+set scrolloff=3                 " start scrolling before cursor hits end
+set showmode
+set showcmd
+set cursorline
+set ttyfast
+set ruler                       " Show information on vim bottom
+set laststatus=2
+set undofile
+set fillchars=vert:\│           " that's a vertical box-drawing character
+
+set history=1000                " remember more commands and search history
+set undolevels=1000             " use many levels of undo
+set title                       " change terminal's title
+set visualbell                  " don't beep
+set noerrorbells                " don't beep
+
+set wildmenu                                    " Better file name completion
+set wildmode=list:longest,full
+set wildignore=*.bak,*.class
+set wildignore+=.hg,.git,.svn                    " Version control
+set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+set wildignore+=*.spl                            " compiled spelling word lists
+set wildignore+=*.sw?                            " Vim swap files
+set wildignore+=*.DS_Store                       " OSX bullshit
+set wildignore+=migrations                       " Django migrations
+set wildignore+=*.pyc                            " Python byte code
+set wildignore+=*.orig                           " Merge resolution files
+
+set list
+set listchars=tab:>·,trail:·,extends:#,nbsp:·   "Let me see spaces and tabs
+                                                "If want eol append ',eol:¬'
+
+set pastetoggle=<F2>            " No autoindent in paste mode
+
+"always show line numbers
+set number
+
+syntax on                       " switch syntax highlighting on
+
+"Turn off the arrow keys!
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+
+" move a line of text using ALT+[jk], indent with ALT+[hl]
+nnoremap <A-k> :m-2<CR>==
+nnoremap <A-j> :m+<CR>==
+nnoremap <A-h> <<
+nnoremap <A-l> >>
+inoremap <A-j> <Esc>:m+<CR>==gi
+inoremap <A-k> <Esc>:m-2<CR>==gi
+inoremap <A-h> <Esc><<`]a
+inoremap <A-l> <Esc>>>`]a
+vnoremap <A-j> :m'>+<CR>gv=gv
+vnoremap <A-k> :m-2<CR>gv=gv
+vnoremap <A-h> <gv
+vnoremap <A-l> >gv
