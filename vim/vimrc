@@ -1,3 +1,38 @@
+set nocompatible               " be iMproved
+filetype off                   " required!
+
+" change mapleader from \ to ,
+let mapleader=","
+
+if !isdirectory(expand(expand("~/.vim/bundle/vundle/.git")))
+    !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+endif
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle required!
+Bundle 'gmarik/vundle'
+
+" File buffer/search plugin
+"Bundle 'Command-T'
+
+" Adds menu options for plugins
+Bundle 'mbadran/headlights'
+
+" auto close quotes, parenthesis, etc.
+Bundle 'Raimondi/delimitMate'
+
+" modify comments easily
+Bundle 'scrooloose/nerdcommenter'
+
+" git integration
+Bundle 'tpope/vim-fugitive'
+
+" Edit surrounding quotes, parenthesis
+Bundle 'tpope/vim-surround'
+
+
 set nocompatible                " be IMproved
 
 set tabstop=4                   " a tab is four spaces
