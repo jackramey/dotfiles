@@ -1,5 +1,7 @@
 #!/bin/bash
 
+git rebase
+
 #backup old vimrc
 cp $HOME/.vimrc $HOME/.vimrc.bak_$(date +"%Y_%m_%d")
 #copy new vimrc over
