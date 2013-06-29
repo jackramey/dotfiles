@@ -1,6 +1,7 @@
 #!/bin/bash
-
-git rebase
+git stash
+git rebase master
+git stash pop
 
 #backup old vimrc
 cp $HOME/.vimrc $HOME/.vimrc.bak_$(date +"%Y_%m_%d")
