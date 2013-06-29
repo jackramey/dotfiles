@@ -14,11 +14,8 @@ call vundle#rc()
 " let Vundle manage Vundle required!
 Bundle 'gmarik/vundle'
 
-" File buffer/search plugin
-"Bundle 'Command-T'
-
-" Adds menu options for plugins
-Bundle 'mbadran/headlights'
+" powerline fonts package
+Bundle 'Lokaltog/vim-powerline'
 
 " auto close quotes, parenthesis, etc.
 Bundle 'Raimondi/delimitMate'
