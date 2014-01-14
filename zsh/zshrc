@@ -57,3 +57,9 @@ setopt no_share_history
 __git_files () {
     _wanted files expl 'local files' _files
 }
+
+# Stop annoying autocorrect
+unsetopt correct_all
+
+#Set the terminal to use Vi commands rather than eMacs
+set -o vi
