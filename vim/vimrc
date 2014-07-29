@@ -91,15 +91,6 @@ set number
 
 syntax on                       " switch syntax highlighting on
 
-"Turn off the arrow keys!
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
 
 " move a line of text using ALT+[jk], indent with ALT+[hl]
 nnoremap <A-k> :m-2<CR>==
