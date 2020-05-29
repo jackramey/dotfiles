@@ -1,1 +1,0 @@
-Install in ~/.config/fish/
