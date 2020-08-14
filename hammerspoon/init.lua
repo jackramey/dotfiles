@@ -231,6 +231,7 @@ hs.hotkey.bind(HyperKey, "R", NextScreen())
 hs.hotkey.bind(HyperKey, "space", Full())
 hs.hotkey.bind(VyperKey, "space", Center(.6))
 hs.hotkey.bind(VyperKey, "C", Center(.4))
+hs.hotkey.bind(VyperKey, "C", Center(.8))
 hs.hotkey.bind(HyperKey, "U", Top(.5))
 hs.hotkey.bind(HyperKey, "I", Bottom(.5))
 
@@ -272,6 +273,7 @@ hs.hotkey.bind(HyperKey, "0", RightBot(.7, .7))
 
 -- Lock Screen
 hs.hotkey.bind(HyperKey, 'escape', function() hs.caffeinate.startScreensaver() end)
+hs.hotkey.bind(VyperKey, 'escape', function() hs.caffeinate.systemSleep() end)
 
 -- Reload Config
 hs.hotkey.bind(HyperKey, "f5", function() hs.reload() end)
