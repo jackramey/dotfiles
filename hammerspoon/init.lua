@@ -230,7 +230,7 @@ hs.hotkey.bind(HyperKey, "R", NextScreen())
 -- Center
 hs.hotkey.bind(HyperKey, "space", Full())
 hs.hotkey.bind(VyperKey, "space", Center(.6))
-hs.hotkey.bind(VyperKey, "C", Center(.4))
+hs.hotkey.bind(HyperKey, "C", Center(.4))
 hs.hotkey.bind(VyperKey, "C", Center(.8))
 hs.hotkey.bind(HyperKey, "U", Top(.5))
 hs.hotkey.bind(HyperKey, "I", Bottom(.5))

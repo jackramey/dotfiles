@@ -1,0 +1,21 @@
+*.orig
+*.bak
+
+# VIM #
+.*.un~
+
+# Jetbrains
+.idea/
+
+# OS generated files #
+######################
+*.swp
+.DS_Store
+.DS_Store?
+._*
+
+# Mage completion
+.mage
+
+# Repl directories
+cmd/repl/
