@@ -6,13 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/p10k.zsh.
-
 [[ ! -f ~/.config/zsh/p10k.zsh ]] || source ~/.config/zsh/p10k.zsh
-ZDOTDIR=$HOME/.config/zsh
 
-source $ZDOTDIR/common.zsh
-source $ZDOTDIR/tendo.zsh
-
-
-# Created by `pipx` on 2022-02-09 16:56:31
-export PATH="$PATH:/Users/jackramey/.local/bin"
+# To customize prompt, run `p10k configure` or edit ~/code/dotfiles/zsh/p10k.zsh.
+[[ ! -f ~/code/dotfiles/zsh/p10k.zsh ]] || source ~/code/dotfiles/zsh/p10k.zsh

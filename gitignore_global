@@ -1,6 +1,9 @@
 *.orig
 *.bak
 
+# serverless output
+.serverless/
+
 # VIM #
 .*.un~
 
@@ -19,3 +22,10 @@
 
 # Repl directories
 cmd/repl/
+repl/
+
+# Tendo specific configurations
+tendo.zsh
+
+
+

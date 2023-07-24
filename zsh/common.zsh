@@ -58,8 +58,10 @@ source $ZSH/oh-my-zsh.sh
 
 #export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
+export GOPRIVATE=bitbucket.org/tendosystems/*,bitbucket.org/jack-ramey/*
+
 # Customize to your needs...
-export PATH=$HOME/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/mysql/bin:/usr/local/java/default/bin:$GOROOT/bin:$GOPATH/bin:$HOME/.cargo/bin:$PATH
+export PATH=$HOME/bin:/opt/homebrew/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/mysql/bin:/usr/local/java/default/bin:$GOROOT/bin:$GOPATH/bin:$HOME/.cargo/bin:/Users/jackramey/Library/Python/3.8/bin:$PATH:$PATH
 
 
 #History Settings
@@ -72,8 +74,14 @@ __git_files () {
 }
 
 export PATCHDIR=$HOME/patch
+export NOW=$( date '+%F_%H:%M:%S' )
 
 # Stop annoying autocorrect
 unsetopt correct_all
+
+
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+complete -C '/usr/local/bin/aws_completer' aws
 
 
