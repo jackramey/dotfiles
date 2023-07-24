@@ -1,8 +1,8 @@
 -- Remove animations
 hs.window.animationDuration=0
 
-HyperKey = {"cmd", "alt", "ctrl"}
-VyperKey = {"cmd", "alt", "ctrl", "shift"}
+MehKey = {"cmd", "alt", "ctrl"}
+HyperKey = {"cmd", "alt", "ctrl", "shift"}
 
 ---------------------
 -- Resize Bindings --
@@ -193,12 +193,12 @@ end
 switcher = hs.window.switcher.new(hs.window.filter.new():setCurrentSpace(true):setDefaultFilter{})
 switcher.ui.showTitles = true
 switcher.ui.showThumbnails = false
-switcher.ui.fontName = 'Hack'
+-- switcher.ui.fontName = 'Hack'
 switcher.ui.backgroundColor = {0.0,0.0,0.0,0}
 switcher.ui.showSelectedTitle = false
 
 
-hs.hotkey.bind(HyperKey,'tab','',function()
+hs.hotkey.bind(MehKey,'tab','',function()
     switcher:next()
 end)
 
@@ -217,63 +217,63 @@ end)
 --     end
 -- end
 
--- hs.hotkey.bind(HyperKey, 'down', changeVolume(-5))
--- hs.hotkey.bind(HyperKey, 'up', changeVolume(5))
+-- hs.hotkey.bind(MehKey, 'down', changeVolume(-5))
+-- hs.hotkey.bind(MehKey, 'up', changeVolume(5))
 
 -----------------------
 -- Location Bindings --
 -----------------------
 
 -- Switch to next screen
-hs.hotkey.bind(HyperKey, "R", NextScreen())
+hs.hotkey.bind(MehKey, "R", NextScreen())
 
 -- Center
-hs.hotkey.bind(HyperKey, "space", Full())
-hs.hotkey.bind(VyperKey, "space", Center(.6))
+hs.hotkey.bind(MehKey, "space", Full())
+hs.hotkey.bind(HyperKey, "space", Center(.6))
 hs.hotkey.bind(HyperKey, "C", Center(.4))
-hs.hotkey.bind(VyperKey, "C", Center(.8))
-hs.hotkey.bind(HyperKey, "U", Top(.5))
-hs.hotkey.bind(HyperKey, "I", Bottom(.5))
+hs.hotkey.bind(MehKey, "C", Center(.8))
+hs.hotkey.bind(MehKey, "U", Top(.5))
+hs.hotkey.bind(MehKey, "I", Bottom(.5))
 
 -- Left
-hs.hotkey.bind(VyperKey, "H", Left(.3))
-hs.hotkey.bind(HyperKey, "H", Left(.5))
-hs.hotkey.bind(HyperKey, "J", Left(.6))
-hs.hotkey.bind(VyperKey, "J", Left(.7))
+hs.hotkey.bind(HyperKey, "H", Left(.3))
+hs.hotkey.bind(MehKey, "H", Left(.5))
+hs.hotkey.bind(MehKey, "J", Left(.6))
+hs.hotkey.bind(HyperKey, "J", Left(.7))
 
 -- Right
-hs.hotkey.bind(VyperKey, "K", Right(.7))
-hs.hotkey.bind(HyperKey, "K", Right(.6))
-hs.hotkey.bind(HyperKey, "L", Right(.5))
-hs.hotkey.bind(VyperKey, "L", Right(.3))
+hs.hotkey.bind(HyperKey, "K", Right(.7))
+hs.hotkey.bind(MehKey, "K", Right(.6))
+hs.hotkey.bind(MehKey, "L", Right(.5))
+hs.hotkey.bind(HyperKey, "L", Right(.3))
 
 -- Left Quadrants
-hs.hotkey.bind(VyperKey, "O", LeftTop(.3, .5))
-hs.hotkey.bind(HyperKey, "O", LeftTop(.5, .5))
-hs.hotkey.bind(HyperKey, "N", LeftBot(.5, .5))
-hs.hotkey.bind(VyperKey, "N", LeftBot(.3, .5))
+hs.hotkey.bind(HyperKey, "O", LeftTop(.3, .5))
+hs.hotkey.bind(MehKey, "O", LeftTop(.5, .5))
+hs.hotkey.bind(MehKey, "N", LeftBot(.5, .5))
+hs.hotkey.bind(HyperKey, "N", LeftBot(.3, .5))
 
 -- Right Quadrants
-hs.hotkey.bind(VyperKey, "P", RightTop(.3, .5))
-hs.hotkey.bind(HyperKey, "P", RightTop(.5, .5))
-hs.hotkey.bind(HyperKey, "M", RightBot(.5, .5))
-hs.hotkey.bind(VyperKey, "M", RightBot(.3, .5))
-hs.hotkey.bind(HyperKey, "0", RightBot(.7, .7))
+hs.hotkey.bind(HyperKey, "P", RightTop(.3, .5))
+hs.hotkey.bind(MehKey, "P", RightTop(.5, .5))
+hs.hotkey.bind(MehKey, "M", RightBot(.5, .5))
+hs.hotkey.bind(HyperKey, "M", RightBot(.3, .5))
+hs.hotkey.bind(MehKey, "0", RightBot(.7, .7))
 
 -- Resize Window --
 
--- hs.hotkey.bind(HyperKey, "left", ExtendLeft(5), nil, ExtendLeft(5))
--- hs.hotkey.bind(VyperKey, "left", ShrinkRight(5), nil, ShrinkRight(5))
--- hs.hotkey.bind(HyperKey, "right", ExtendRight(5), nil, ExtendRight(5))
--- hs.hotkey.bind(VyperKey, "right", ShrinkLeft(5), nil, ShrinkLeft(5))
+-- hs.hotkey.bind(MehKey, "left", ExtendLeft(5), nil, ExtendLeft(5))
+-- hs.hotkey.bind(HyperKey, "left", ShrinkRight(5), nil, ShrinkRight(5))
+-- hs.hotkey.bind(MehKey, "right", ExtendRight(5), nil, ExtendRight(5))
+-- hs.hotkey.bind(HyperKey, "right", ShrinkLeft(5), nil, ShrinkLeft(5))
 
 ---------------
 -- Shortcuts --
 ---------------
 
 -- Lock Screen
-hs.hotkey.bind(HyperKey, 'escape', function() hs.caffeinate.startScreensaver() end)
-hs.hotkey.bind(VyperKey, 'escape', function() hs.caffeinate.systemSleep() end)
+hs.hotkey.bind(MehKey, 'escape', function() hs.caffeinate.startScreensaver() end)
+hs.hotkey.bind(HyperKey, 'escape', function() hs.caffeinate.systemSleep() end)
 
 -- Reload Config
-hs.hotkey.bind(HyperKey, "f5", function() hs.reload() end)
+hs.hotkey.bind(MehKey, "f5", function() hs.reload() end)
