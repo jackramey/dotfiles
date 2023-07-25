@@ -1,6 +1,6 @@
 [user]
 	name = jack.ramey
-	email = jramey@tendo.com
+	email = jack.ramey@gmail.com
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
