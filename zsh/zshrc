@@ -14,5 +14,8 @@ source $ZDOTDIR/common.zsh
 source $ZDOTDIR/tendo.zsh
 
 
+source $HOME/.zshenv
+
 # Created by `pipx` on 2022-02-09 16:56:31
 export PATH="$PATH:/Users/jackramey/.local/bin"
+

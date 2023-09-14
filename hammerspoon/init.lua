@@ -271,9 +271,22 @@ hs.hotkey.bind(MehKey, "0", RightBot(.7, .7))
 -- Shortcuts --
 ---------------
 
+function sleepAfter(seconds)
+    return function()
+        hs.timer.doAfter(seconds, hs.caffeinate.systemSleep)
+    end
+end
+
 -- Lock Screen
 hs.hotkey.bind(MehKey, 'escape', function() hs.caffeinate.startScreensaver() end)
-hs.hotkey.bind(HyperKey, 'escape', function() hs.caffeinate.systemSleep() end)
+
+-- for some reason Hyper+Escape registers with hammerspoon (we can see the log line "hotkey: Enabled hotkey ✧ESCAPE") but
+--  it does not trigger when pressed. I can't figure out why and so instead we'll just set system sleep to a different hotkey
+-- hs.hotkey.bind(HyperKey, 'escape', function() print('received sleep') end)
+hs.hotkey.bind(HyperKey, 'f1', sleepAfter(1))
+
+
 
 -- Reload Config
 hs.hotkey.bind(MehKey, "f5", function() hs.reload() end)
+
