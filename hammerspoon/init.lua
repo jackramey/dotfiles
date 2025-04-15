@@ -229,23 +229,23 @@ hs.hotkey.bind(MehKey, "R", NextScreen())
 
 -- Center
 hs.hotkey.bind(MehKey, "space", Full())
-hs.hotkey.bind(HyperKey, "space", Center(.6))
-hs.hotkey.bind(HyperKey, "C", Center(.4))
-hs.hotkey.bind(MehKey, "C", Center(.8))
+hs.hotkey.bind(HyperKey, "space", Center(.8))
+hs.hotkey.bind(MehKey, "C", Center(.4))
+hs.hotkey.bind(HyperKey, "C", Center(.6))
 hs.hotkey.bind(MehKey, "U", Top(.5))
 hs.hotkey.bind(MehKey, "I", Bottom(.5))
 
 -- Left
-hs.hotkey.bind(HyperKey, "H", Left(.3))
-hs.hotkey.bind(MehKey, "H", Left(.5))
-hs.hotkey.bind(MehKey, "J", Left(.6))
+hs.hotkey.bind(HyperKey, "H", Left(.25))
+hs.hotkey.bind(MehKey, "H", Left(.3))
+hs.hotkey.bind(MehKey, "J", Left(.5))
 hs.hotkey.bind(HyperKey, "J", Left(.7))
 
 -- Right
 hs.hotkey.bind(HyperKey, "K", Right(.7))
-hs.hotkey.bind(MehKey, "K", Right(.6))
-hs.hotkey.bind(MehKey, "L", Right(.5))
-hs.hotkey.bind(HyperKey, "L", Right(.3))
+hs.hotkey.bind(MehKey, "K", Right(.5))
+hs.hotkey.bind(MehKey, "L", Right(.3))
+hs.hotkey.bind(HyperKey, "L", Right(.25))
 
 -- Left Quadrants
 hs.hotkey.bind(HyperKey, "O", LeftTop(.3, .5))

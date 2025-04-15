@@ -1,3 +1,12 @@
 .*.un~
 .zcompdump-ADOPTTRIPLIVE-5.3
 
+# Ignore local zsh configurations
+zsh/local
+
+# Karabiner
+karabiner/automatic_backups
+
+# System Files
+.DS_Store
+
