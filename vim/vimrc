@@ -1,103 +1,96 @@
+" Use zsh as shell
 set shell=/bin/zsh
-set nocompatible               " be iMproved
-filetype off                   " required!
+set nocompatible              " Use Vim defaults
+filetype off
 
-" change mapleader from \ to ,
-let mapleader=","
+" Set mapleader to comma
+let mapleader = ","
 
-if !isdirectory(expand(expand("~/.vim/bundle/vundle/.git")))
-    !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+" Install Vim-Plug if missing
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" Initialize plugin system
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle required!
-Bundle 'gmarik/vundle'
+" Plugin list
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'Raimondi/delimitMate'
+Plug 'preservim/nerdcommenter'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'leafgarland/typescript-vim'
 
-" airline package
-Bundle 'vim-airline/vim-airline'
-Bundle 'vim-airline/vim-airline-themes'
+call plug#end()
 
-" auto close quotes, parenthesis, etc.
-Bundle 'Raimondi/delimitMate'
+filetype plugin indent on
+syntax on
 
-" modify comments easily
-Bundle 'scrooloose/nerdcommenter'
-
-" git integration
-Bundle 'tpope/vim-fugitive'
-
-" Edit surrounding quotes, parenthesis
-Bundle 'tpope/vim-surround'
-
-Bundle 'leafgarland/typescript-vim'
-
-set nocompatible                " be IMproved
-
-set tabstop=4                   " a tab is four spaces
-set shiftwidth=4                " number of spaces to use for autoindenting
-set softtabstop=4
-set expandtab                   " expand tabs to spaces
-set backspace=indent,eol,start  " allow backspacking over everything in insert mode
-set autoindent                  " always set autoindent
-set copyindent                  " copy the previous indentation on autoindenting
-set shiftround                  " multiple of shiftwidth when indenting with '<' and '>'
-set showmatch                   " show matching parenthesis
-set ignorecase                  " ignore case when searching
-set smartcase                   " ignore case if search pattern is all lowercase,
-                                " case sensitive otherwise
-set smarttab                    " insert tabs on the start of a line according to
-                                " shiftwidth not tabstop
-set hlsearch                    " highlight search terms
-set incsearch                   " show search matches as you type
-set guioptions-=T               " No toolbar
-set encoding=utf-8              " UTF-8 encoded
-set scrolloff=3                 " start scrolling before cursor hits end
-set showmode
-set showcmd
+" General appearance and UI
+set number
+set relativenumber
 set cursorline
-set ttyfast
-set ruler                       " Show information on vim bottom
+set showmatch
+set showcmd
+set showmode
+set ruler
 set laststatus=2
-set undofile
-set fillchars=vert:\│           " that's a vertical box-drawing character
+set scrolloff=3
+set fillchars=vert:\│
+set encoding=utf-8
+set termguicolors
+set clipboard=unnamedplus
+set title
+set guioptions-=T
+set wildmenu
+set wildmode=list:longest,full
+set ttyfast
 
+" Indentation and formatting
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set autoindent
+set smartindent
+set copyindent
+set shiftround
+set smarttab
+
+" Searching
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+
+" Files and history
+set undofile
+set history=1000
+set undolevels=1000
+
+" Bell
+set visualbell
+set noerrorbells
+
+" Completion and file ignore
+set wildignore=*.bak,*.class,.hg,.git,.svn,*.aux,*.out,*.toc,*.jpg,*.bmp,*.gif,*.png,*.jpeg,*.o,*.obj,*.exe,*.dll,*.manifest,*.spl,*.sw?,*.DS_Store,migrations,*.pyc,*.orig
+
+" Whitespace indicators
+set list
+set listchars=tab:>·,trail:·,extends:#,nbsp:·
+
+" Paste mode toggle
+set pastetoggle=<F2>
+
+" Timeout settings
 set timeoutlen=1000
 set ttimeoutlen=5
 
-set history=1000                " remember more commands and search history
-set undolevels=1000             " use many levels of undo
-set title                       " change terminal's title
-set visualbell                  " don't beep
-set noerrorbells                " don't beep
-
-set wildmenu                                    " Better file name completion
-set wildmode=list:longest,full
-set wildignore=*.bak,*.class
-set wildignore+=.hg,.git,.svn                    " Version control
-set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
-set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
-set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
-set wildignore+=*.spl                            " compiled spelling word lists
-set wildignore+=*.sw?                            " Vim swap files
-set wildignore+=*.DS_Store                       " OSX bullshit
-set wildignore+=migrations                       " Django migrations
-set wildignore+=*.pyc                            " Python byte code
-set wildignore+=*.orig                           " Merge resolution files
-
-set list
-set listchars=tab:>·,trail:·,extends:#,nbsp:·   "Let me see spaces and tabs
-                                                "If want eol append ',eol:¬'
-
-set pastetoggle=<F2>            " No autoindent in paste mode
-
-"always show line numbers
-set number
-
-syntax on                       " switch syntax highlighting on
-
-" move a line of text using ALT+[jk], indent with ALT+[hl]
+" Keybindings: move/indent lines with Alt
 nnoremap <A-k> :m-2<CR>==
 nnoremap <A-j> :m+<CR>==
 nnoremap <A-h> <<
