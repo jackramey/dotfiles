@@ -1,4 +1,4 @@
-alias refreshaudio='sudo pkill coreaudiod'# Path to your oh-my-zsh configuration.
+# Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
@@ -6,7 +6,6 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="powerlevel10k/powerlevel10k"
-#noop
 
 #Sudo alias hack
 alias sudo='sudo '
@@ -52,21 +51,25 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git sbt)
+plugins=(git asdf gradle-completion)
 
 source $ZSH/oh-my-zsh.sh
 
+# Customize to your needs...
+export PATH=$HOME/bin:/opt/homebrew/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/mysql/bin:/usr/local/java/default/bin:$PATH
+
+# Go settings
 #export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export GOPRIVATE=bitbucket.org/tendosystems/*,bitbucket.org/jack-ramey/*
+export PATH=$PATH:$GOPATH/bin
 
-# Customize to your needs...
-export PATH=$HOME/bin:/opt/homebrew/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/mysql/bin:/usr/local/java/default/bin:$GOROOT/bin:$GOPATH/bin:$HOME/.cargo/bin:/Users/jackramey/Library/Python/3.8/bin:$PATH:$PATH
-
+# Rust settings
+export PATH=$PATH:$HOME/.cargo/bin
 
 #History Settings
-setopt inc_append_history
-setopt no_share_history
+unsetopt inc_append_history
+unsetopt share_history
 
 #git settings
 __git_files () {
@@ -78,7 +81,6 @@ export NOW=$( date '+%F_%H:%M:%S' )
 
 # Stop annoying autocorrect
 unsetopt correct_all
-
 
 autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit

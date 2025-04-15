@@ -1,0 +1,56 @@
+[alias]
+    # pretty log
+    plog = log --pretty=tformat:'%h %Cred%cr%Creset %an %Cgreen%s%Creset'
+
+    # quick aliases
+    co = checkout
+    st = status
+
+    #workflow aliases
+    pr = push -u origin $(git rev-parse --abbrev-ref HEAD)
+    changes = diff-tree --no-commit-id --name-only -r HEAD
+
+    amend = "!f(){ \
+      git add -A
+      git commit --amend --no-edit
+    }; f"
+
+    sync = "!f() { \
+        echo \"Syncing main branch\" ; \
+        git fetch origin main:main; \
+    }; f"
+
+    cleanup = "!f() { \
+        if [[ -n $(git status -s) ]]; then \
+            echo \"Uncommitted changes on current branch, halting cleanup\" ; \
+            exit 1; \
+        fi; \
+        read -r -p 'Confirm cleanup current branch [Y/n]? ' choice ; \
+        if ! [[ $choice =~ ^[Yy]$ ]]; then \
+            echo "Skipping cleanup." ; \
+            exit 1 ; \
+        fi; \
+        branch=`git rev-parse --abbrev-ref HEAD` ; \
+        echo $branch ; \
+        if [[ $branch == 'master' ]]; then \
+            echo "Cannot delete master branch" ; \
+            echo "Exiting" ; \
+            exit 1 ; \
+        fi; \
+        git co master ; \
+        git b -D ${branch} ; \
+        git pull -r ; \
+    }; f"
+    
+    review = "!f() { \
+      if [ -z $1 ]; then \
+          echo \"Usage: git review <branch> <topic>\"; \
+      else \
+          if [ -z $2 ]; then \
+            git push origin HEAD:refs/for/$1; \
+          else \
+            git push origin HEAD:refs/for/$1/$2; \
+          fi; \
+      fi; \
+    }; f"
+

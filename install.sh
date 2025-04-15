@@ -12,7 +12,7 @@ cp vim/vimrc $HOME/.vimrc
 
 #backup old zshrc
 echo "Creating backup of .zshrc"
-cp $HOME/.zshrc $HOME/.zshrc.back_$(date +"%Y_%m_%d")
+cp $HOME/.zshrc $HOME/.zshrc.bak_$(date +"%Y_%m_%d")
 #copy new zshrc over
 echo "Copying new .zshrc to $HOME/"
 cp zsh/zshrc $HOME/.zshrc

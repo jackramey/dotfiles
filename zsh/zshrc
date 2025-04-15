@@ -11,8 +11,16 @@ fi
 ZDOTDIR=$HOME/.config/zsh
 
 source $ZDOTDIR/common.zsh
-source $ZDOTDIR/tendo.zsh
+source $ZDOTDIR/gradle.zsh
 
+# Load local, untracked config files if they exist
+LOCAL_ZSH_DIR="${ZDOTDIR}/local"
+
+if [[ -d "$LOCAL_ZSH_DIR" ]]; then
+  for file in "$LOCAL_ZSH_DIR"/*.zsh; do
+    [[ -r "$file" ]] && source "$file"
+  done
+fi
 
 source $HOME/.zshenv
 
