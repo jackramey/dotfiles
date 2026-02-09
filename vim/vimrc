@@ -42,7 +42,7 @@ set scrolloff=3
 set fillchars=vert:\│
 set encoding=utf-8
 set termguicolors
-set clipboard=unnamedplus
+set clipboard=
 set title
 set guioptions-=T
 set wildmenu
