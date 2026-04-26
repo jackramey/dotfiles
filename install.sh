@@ -1,19 +1,33 @@
 #!/bin/bash
-git stash
-git rebase master
-git stash pop
+set -e
 
-#backup old vimrc
-echo "Creating backup of .vimrc"
-cp $HOME/.vimrc $HOME/.vimrc.bak_$(date +"%Y_%m_%d")
-#copy new vimrc over
-echo "Copying new .vimrc to $HOME/"
-cp vim/vimrc $HOME/.vimrc
+REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-#backup old zshrc
-echo "Creating backup of .zshrc"
-cp $HOME/.zshrc $HOME/.zshrc.bak_$(date +"%Y_%m_%d")
-#copy new zshrc over
-echo "Copying new .zshrc to $HOME/"
-cp zsh/zshrc $HOME/.zshrc
+prompt_yn() {
+  local prompt="$1"
+  local reply
+  read -r -p "$prompt [y/N] " reply
+  [[ "$reply" =~ ^[Yy]$ ]]
+}
 
+run_subdir_install() {
+  local subdir="$1"
+  local script="$REPO_DIR/$subdir/install.sh"
+  [ -x "$script" ] || return 0
+
+  echo
+  if prompt_yn "Install $subdir config?"; then
+    echo "--- installing $subdir ---"
+    "$script"
+  else
+    echo "--- skipping $subdir ---"
+  fi
+}
+
+for dir in "$REPO_DIR"/*/; do
+  subdir="$(basename "$dir")"
+  run_subdir_install "$subdir"
+done
+
+echo
+echo "Done."
