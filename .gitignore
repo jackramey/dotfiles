@@ -13,4 +13,7 @@ karabiner/automatic_backups
 # System Files
 .DS_Store
 
+# Claude
+.claude
+
 

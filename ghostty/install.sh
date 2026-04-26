@@ -25,4 +25,4 @@ link() {
   echo "  linked $dst -> $src"
 }
 
-link "$DIR/config.ghostty" "$HOME/Library/Application Support/com.mitchellh.ghostty/config"
+link "$DIR/config.ghostty" "$HOME/.config/ghostty/config"
