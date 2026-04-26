@@ -4,9 +4,13 @@
 # Ignore local zsh configurations
 zsh/local
 
+# Backups
+*.backup
+
 # Karabiner
 karabiner/automatic_backups
 
 # System Files
 .DS_Store
+
 
