@@ -37,7 +37,7 @@ window-theme = dark
 # === Cursor ===
 cursor-style = block
 cursor-style-blink = false
-shell-integration-features = no-cursor
+shell-integration-features = no-cursor,ssh-env,ssh-terminfo
 
 # === Scrollback ===
 scrollback-limit = 10000000
