@@ -29,6 +29,7 @@ Each subdir owns its own installer. Run it directly:
 ./git/install.sh
 ./ghostty/install.sh
 ./karabiner/install.sh
+./macos/install.sh
 ```
 
 ### What gets installed where
@@ -43,5 +44,19 @@ Each subdir owns its own installer. Run it directly:
 | `git/gitignore_global` | `~/.gitignore_global` |
 | `ghostty/config.ghostty` | `~/Library/Application Support/com.mitchellh.ghostty/config` |
 | `karabiner/karabiner.json` | `~/.config/karabiner/karabiner.json` |
+| `macos/com.user.ssh-add-keychain.plist` | `~/Library/LaunchAgents/com.user.ssh-add-keychain.plist` |
 
 `hammerspoon/` and `iterm2/` are tracked in the repo for reference but have no installer.
+
+### macOS LaunchAgents
+
+`macos/install.sh` symlinks the LaunchAgent and activates it via `launchctl`
+(no logout required). The `com.user.ssh-add-keychain` agent runs
+`ssh-add --apple-load-keychain` at login, which loads any SSH keys whose
+passphrases are saved in the Keychain into `ssh-agent`. It pairs with
+`AddKeysToAgent yes` + `UseKeychain yes` in `~/.ssh/config` so the agent is
+populated after every reboot — replacing the manual `ssh-add -A`
+(now `ssh-add --apple-load-keychain`) step.
+
+To disable it: `launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/com.user.ssh-add-keychain.plist`
+then remove the symlink.
